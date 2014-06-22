@@ -146,3 +146,7 @@ setkey(dt, subject, activity, featDomain, featAcceleration, featInstrument, feat
 dtTidy <- dt[, list(count = .N, average = mean(value)), by=key(dt)]
 
 write.table(dtTidy,"TidyDataset.txt")
+
+
+knit("MakeCodebook.Rmd", output="CodeBook.md", encoding="ISO8859-1", quiet=TRUE)
+markdownToHTML("codebook.md", "codebook.html")
